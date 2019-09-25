@@ -1,3 +1,42 @@
+# Colour Pops Project
+
+---
+
+## Project Description
+
+Colour Pops is a project that allows users to enter and store their favourite colours. They are able to give those colours a suitable name.
+
+Users are then able to search through results and are also able to refine these search results
+
+---
+
+## Technologies Used In Project
+
+- Redux
+- Typescript
+- React
+- Node
+- AWS
+- ElasticSearch
+- Cypress
+- Jest
+
+---
+
+## Testing
+
+Project has unit tests, integration tests and end-to-end tests. Most code has been written using TDD following the red-green-refactor method.
+
+Tests can be run using:
+
+```
+npm test
+```
+
+---
+
+## Project running commands
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
