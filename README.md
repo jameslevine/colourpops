@@ -10,6 +10,13 @@ Users are then able to search through results and are also able to refine these 
 
 ---
 
+## Designs
+
+![](https://user-images.githubusercontent.com/41184245/65818041-9ee48100-e205-11e9-9b54-e81a199408be.png)
+![](https://user-images.githubusercontent.com/41184245/65818042-9ee48100-e205-11e9-876a-467720c7ad9f.png)
+
+---
+
 ## Technologies Used In Project
 
 - Redux
@@ -20,6 +27,7 @@ Users are then able to search through results and are also able to refine these 
 - ElasticSearch
 - Cypress
 - Jest
+- React Testing Library
 
 ---
 
