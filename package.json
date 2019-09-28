@@ -54,13 +54,11 @@
     "jest": "^24.9.0",
     "prettier": "^1.18.2"
   },
-  {
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm test",
-        "pre-push": "npm test",
-        "...": "..."
-      }
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "...": "..."
     }
   }
 }
