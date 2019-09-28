@@ -15,7 +15,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "jest": "jest src",
     "eject": "react-scripts eject",
     "cypress": "npx cypress open",
     "storybook": "start-storybook -p 9009 -s public",
@@ -56,8 +55,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
-      "pre-push": "npm test"
+      "pre-commit": "CI=true react-scripts test",
+      "pre-push": "CI=true react-scripts test"
     }
   }
 }
