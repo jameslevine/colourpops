@@ -5,7 +5,6 @@
   "dependencies": {
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.7",
-    "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -17,7 +16,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "npx cypress open"
+    "cypress": "npx cypress open",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "lint:fix": "eslint './src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +37,26 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^3.4.1"
+    "@storybook/addon-actions": "^5.2.1",
+    "@storybook/addon-links": "^5.2.1",
+    "@storybook/addons": "^5.2.1",
+    "@storybook/react": "^5.2.1",
+    "@testing-library/react": "^9.2.0",
+    "@types/react": "^16.9.3",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "cypress": "^3.4.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.7",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "CI=true react-scripts test",
+      "pre-push": "CI=true react-scripts test"
+    }
   }
 }
