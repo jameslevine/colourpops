@@ -1,6 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import ColourInput from "./components/ColourInput";
 
 function App(): JSX.Element {
   return (
@@ -10,14 +11,7 @@ function App(): JSX.Element {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Colour Pops
-        </a>
+        <ColourInput />
       </header>
     </div>
   );

@@ -8,7 +8,10 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
     "react-scripts": "3.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "typescript": "^3.6.3"
   },
   "scripts": {
@@ -43,15 +46,11 @@
     "@storybook/react": "^5.2.1",
     "@testing-library/react": "^9.2.0",
     "@types/react": "^16.9.3",
-    "@typescript-eslint/eslint-plugin": "^2.3.1",
-    "@typescript-eslint/parser": "^2.3.1",
+    "@types/react-redux": "^7.1.4",
     "cypress": "^3.4.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.7",
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "redux-devtools-extension": "^2.13.8"
   },
   "husky": {
     "hooks": {
