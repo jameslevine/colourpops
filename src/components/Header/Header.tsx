@@ -10,12 +10,15 @@ const Header = () => {
 };
 
 const StyledNavbar = styled.nav`
-  margin: 0;
+  padding: 20px;
   font-size: 20px;
+  background-color: #ffb5b5;
 `;
 
 const Title = styled.h1`
+  margin: 0;
   font-size: 20px;
+  color: #525252;
 `;
 
 export default Header;
