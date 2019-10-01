@@ -1,12 +1,12 @@
 import React from "react";
-import ColourInput from "./components/ColourInput/ColourInput";
 import Header from "./components/Header/Header";
+import AddColourForm from "./components/AddColourForm/AddColourForm";
 
 function App(): JSX.Element {
   return (
     <>
       <Header />
-      <ColourInput />
+      <AddColourForm />
     </>
   );
 }
