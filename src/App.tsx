@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./components/Header/Header";
 import AddColourForm from "./components/AddColourForm/AddColourForm";
 import SearchColours from "./components/SearchColours/SearchColours";
+import ColourList from "./components/ColourList/ColourList";
 
 function App(): JSX.Element {
   return (
@@ -9,6 +10,7 @@ function App(): JSX.Element {
       <Header />
       <AddColourForm />
       <SearchColours />
+      <ColourList />
     </>
   );
 }
