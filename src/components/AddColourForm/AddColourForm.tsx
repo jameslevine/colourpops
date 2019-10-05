@@ -5,17 +5,27 @@ const AddColourForm = () => {
   return (
     <>
       <StyledRule />
-      <Container>
-        <InputContainer>
-          <StyledLabel htmlFor="colour-name">Colour Name</StyledLabel>
-          <StyledInput placeholder="Enter Colour Name" id="colour-name" />
-        </InputContainer>
-        <InputContainer>
-          <StyledLabel htmlFor="hex-name">Hex Code</StyledLabel>
-          <StyledInput placeholder="Enter HEX Code" id="colour-name" />
-        </InputContainer>
-        <StyledButton>+</StyledButton>
-      </Container>
+      <form action="/postcolour" method="post">
+        <Container>
+          <InputContainer>
+            <StyledLabel htmlFor="colour-name">Colour Name</StyledLabel>
+            <StyledInput
+              placeholder="Enter Colour Name"
+              name="colour-name"
+              id="colour-name"
+            />
+          </InputContainer>
+          <InputContainer>
+            <StyledLabel htmlFor="hex-name">Hex Code</StyledLabel>
+            <StyledInput
+              placeholder="Enter HEX Code"
+              name="hex-name"
+              id="colour-name"
+            />
+          </InputContainer>
+          <StyledButton type="submit">+</StyledButton>
+        </Container>
+      </form>
     </>
   );
 };
@@ -55,7 +65,7 @@ const StyledInput = styled.input`
   border: 0;
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;

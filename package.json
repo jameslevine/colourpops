@@ -6,6 +6,10 @@
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.7",
     "@types/react-dom": "^16.9.0",
+    "cors": "^2.8.5",
+    "helmet": "^3.21.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
@@ -17,6 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -53,6 +58,7 @@
     "jest": "^24.9.0",
     "redux-devtools-extension": "^2.13.8"
   },
+  "proxy": "http://localhost:8080",
   "husky": {
     "hooks": {
       "pre-commit": "CI=true react-scripts test",
