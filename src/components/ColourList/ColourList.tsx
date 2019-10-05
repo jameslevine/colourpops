@@ -5,10 +5,12 @@ const ColourList = () => {
   return (
     <>
       <StyledRule />
-      <Subheading>42 results for blue</Subheading>
+      <Subheading>XXXXXXXX results for XXXXXXXXX</Subheading>
       <Container>
-        <TextDisplay />
-        <ColourDisplay />
+        <TextDisplay>Brilliant Blue</TextDisplay>
+        <ColourDisplay style={{ backgroundColour: "blue" }}>
+          HEX 0000ff
+        </ColourDisplay>
         <StyledButton>-</StyledButton>
       </Container>
     </>
@@ -49,7 +51,7 @@ const ColourDisplay = styled.div`
   padding: 10px;
   font-size: 15px;
   border: 0;
-  background-color: white;
+  background-color: blue;
 `;
 
 const StyledButton = styled.div`
@@ -62,9 +64,5 @@ const StyledButton = styled.div`
 `;
 
 const Subheading = styled.h3`
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: white;
+  font-weight: 600;
 `;
