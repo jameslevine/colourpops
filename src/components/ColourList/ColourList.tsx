@@ -3,10 +3,7 @@ import styled from "styled-components";
 
 const ColourList = () => {
   const [data, setData] = useState([
-    { id: 1, colour_name: "Blue", hex_name: "0000ff" },
-    { id: 2, colour_name: "Black", hex_name: "000000" },
-    { id: 15, colour_name: "Yellow", hex_name: "sdfsd" },
-    { id: 17, colour_name: "Black", hex_name: "" }
+    { id: 1, colour_name: "Blue", hex_name: "0000ff" }
   ]);
 
   useEffect(() => {
@@ -14,11 +11,11 @@ const ColourList = () => {
       const res = await fetch("/search");
       res
         .json()
-        .then(res => setData(res))
+        .then(res => setData([...res]))
         .catch(err => console.log(err));
     }
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <>
