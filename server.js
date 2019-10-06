@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // App Routes - Auth
 app.get("/", (req, res) => res.send("hello world"));
+app.get("/search", (req, res) => main.getColours(req, res));
 app.post("/postcolour", (req, res) => main.postColour(req, res));
 
 // App Server Connection

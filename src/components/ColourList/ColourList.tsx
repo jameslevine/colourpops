@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const ColourList = () => {
+  const [data, setData] = useState([
+    { id: 1, colour_name: "Blue", hex_name: "0000ff" },
+    { id: 2, colour_name: "Black", hex_name: "000000" },
+    { id: 15, colour_name: "Yellow", hex_name: "sdfsd" },
+    { id: 17, colour_name: "Black", hex_name: "" }
+  ]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("/search");
+      res
+        .json()
+        .then(res => setData(res))
+        .catch(err => console.log(err));
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <StyledRule />
-      <Subheading>XXXXXXXX results for XXXXXXXXX</Subheading>
-      <Container>
-        <TextDisplay>Brilliant Blue</TextDisplay>
-        <ColourDisplay style={{ backgroundColour: "blue" }}>
-          HEX 0000ff
-        </ColourDisplay>
-        <StyledButton>-</StyledButton>
-      </Container>
+      <Subheading>{data.length} results</Subheading>
+      {data.map(t => (
+        <Container key={Math.random().toString()}>
+          <TextDisplay>{t.colour_name}</TextDisplay>
+          <ColourDisplay style={{ backgroundColor: "white" }}>
+            {t.hex_name}
+          </ColourDisplay>
+          <StyledButton>-</StyledButton>
+        </Container>
+      ))}
     </>
   );
 };
@@ -51,10 +71,9 @@ const ColourDisplay = styled.div`
   padding: 10px;
   font-size: 15px;
   border: 0;
-  background-color: blue;
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
