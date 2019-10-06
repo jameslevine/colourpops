@@ -3,10 +3,6 @@ const express = require("express");
 // Controllers - aka, the db queries
 const main = require("./src/controllers/main");
 
-// use process.env variables to keep private variables,
-// be sure to ignore the .env file in github
-require("dotenv").config();
-
 // Express Middleware
 const helmet = require("helmet"); // creates headers that protect from attacks (security)
 const cors = require("cors"); // allows/disallows cross-site communication
@@ -15,6 +11,7 @@ const morgan = require("morgan"); // logs requests
 // App
 const app = express();
 
+require("env2")("./.env");
 app.use(helmet());
 app.use(cors());
 app.use(morgan("combined")); // use 'tiny' or 'combined'
