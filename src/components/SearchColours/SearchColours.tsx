@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const SearchColours = () => {
+  const [data, setData] = useState([
+    { id: 1, colour_name: "Blue", hex_name: "0000ff" }
+  ]);
+  const [search, setSearch] = useState("");
+
+  const fetchDataFunc = async () => {
+    try {
+      const res = await fetch(`/query?${search}`);
+      if (res.ok) {
+        const okResponse = await res.json();
+        setData([...okResponse]);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <>
       <StyledRule />
       <Container>
         <InputContainer>
           <StyledLabel htmlFor="search-bar">Search</StyledLabel>
-          <StyledInput placeholder="Search here..." id="search-bar" />
+          <StyledInput
+            placeholder="Search here..."
+            id="search-bar"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
         </InputContainer>
-        <StyledButton>&#128269;</StyledButton>
+        <StyledButton onClick={fetchDataFunc}>&#128269;</StyledButton>
       </Container>
       <StyledDropdownContainer>
         <StyledDropdown>
@@ -76,7 +98,7 @@ const StyledInput = styled.input`
   border: 0;
 `;
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
