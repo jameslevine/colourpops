@@ -5,7 +5,6 @@ const ColourList = () => {
   const [data, setData] = useState([
     { id: 1, colour_name: "Blue", hex_name: "0000ff" }
   ]);
-
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("/search");
@@ -15,7 +14,7 @@ const ColourList = () => {
         .catch(err => console.log(err));
     }
     fetchData();
-  }, [data]);
+  }, []);
 
   return (
     <>

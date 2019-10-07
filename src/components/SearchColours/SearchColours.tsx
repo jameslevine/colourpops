@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const SearchColours = () => {
+const SearchColours = props => {
   const [data, setData] = useState([
     { id: 1, colour_name: "Blue", hex_name: "0000ff" }
   ]);
@@ -9,7 +9,7 @@ const SearchColours = () => {
 
   const fetchDataFunc = async () => {
     try {
-      const res = await fetch(`/query?${search}`);
+      const res = await fetch(`/query?search=${search}`);
       if (res.ok) {
         const okResponse = await res.json();
         setData([...okResponse]);
@@ -29,7 +29,13 @@ const SearchColours = () => {
             placeholder="Search here..."
             id="search-bar"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={e => {
+              props.dispatch({
+                type: "SEARCH_STRING",
+                payload: e.target.value
+              });
+              setSearch(e.target.value);
+            }}
           />
         </InputContainer>
         <StyledButton onClick={fetchDataFunc}>&#128269;</StyledButton>
