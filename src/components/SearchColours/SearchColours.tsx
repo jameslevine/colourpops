@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const SearchColours = props => {
-  const [data, setData] = useState([
-    { id: 1, colour_name: "Blue", hex_name: "0000ff" }
-  ]);
-  const [search, setSearch] = useState("");
-
   const fetchDataFunc = async () => {
     try {
-      const res = await fetch(`/query?search=${search}`);
+      const res = await fetch(`/query?search=${props.colours.searchString}`);
       if (res.ok) {
         const okResponse = await res.json();
-        setData([...okResponse]);
+        props.dispatch({
+          type: "ADD_SEARCH_RESPONSE",
+          payload: [...okResponse]
+        });
       }
     } catch (e) {
       console.error(e);
@@ -28,48 +27,22 @@ const SearchColours = props => {
           <StyledInput
             placeholder="Search here..."
             id="search-bar"
-            value={search}
+            value={props.colours.searchString}
             onChange={e => {
               props.dispatch({
                 type: "SEARCH_STRING",
                 payload: e.target.value
               });
-              setSearch(e.target.value);
             }}
           />
         </InputContainer>
         <StyledButton onClick={fetchDataFunc}>&#128269;</StyledButton>
       </Container>
-      <StyledDropdownContainer>
-        <StyledDropdown>
-          <option>Select:</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-        </StyledDropdown>
-        <StyledDropdown>
-          <option>Select:</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-        </StyledDropdown>
-        <StyledDropdown>
-          <option>Select:</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-        </StyledDropdown>
-      </StyledDropdownContainer>
     </>
   );
 };
 
-export default SearchColours;
+export default connect(state => state)(SearchColours);
 
 const Container = styled.div`
   display: flex;
@@ -111,23 +84,4 @@ const StyledButton = styled.button`
   width: 40px;
   height: 40px;
   background-color: white;
-`;
-
-const StyledDropdown = styled.select`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 40px;
-  margin-right: 20px;
-  background-color: white;
-`;
-
-const StyledDropdownContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-bottom: 50px;
-  background-color: grey;
 `;
