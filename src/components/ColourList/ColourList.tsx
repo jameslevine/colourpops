@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
-const ColourList = () => {
+const ColourList = props => {
   const [data, setData] = useState([
     { id: 1, colour_name: "Blue", hex_name: "0000ff" }
   ]);
-
+  const { dispatch } = props;
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("/search");
       res
         .json()
-        .then(res => setData([...res]))
+        .then(res => {
+          dispatch({
+            type: "ADD_SEARCH_RESPONSE",
+            payload: [...res]
+          });
+          setData([...res]);
+        })
         .catch(err => console.log(err));
     }
     fetchData();
-  }, [data]);
-
+  }, [dispatch]);
   return (
     <>
       <StyledRule />
@@ -34,7 +40,7 @@ const ColourList = () => {
   );
 };
 
-export default ColourList;
+export default connect(state => state)(ColourList);
 
 const Container = styled.div`
   display: flex;

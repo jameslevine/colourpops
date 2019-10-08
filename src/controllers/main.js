@@ -1,5 +1,7 @@
 const postColourQuery = require("../model/queries/postColour");
 const getColoursQuery = require("../model/queries/getColours");
+const getColourSearchQuery = require("../model/queries/getColourSearch");
+const url = require("url");
 
 const postColour = (req, res) => {
   const [colour_name, hex_name] = Object.values(req.body);
@@ -13,7 +15,15 @@ const getColours = (req, res) => {
   });
 };
 
+const getColourSearch = (req, res) => {
+  const q = url.parse(req.url, true);
+  getColourSearchQuery(q.query.search).then(response => {
+    return res.send(response);
+  });
+};
+
 module.exports = {
   postColour,
-  getColours
+  getColours,
+  getColourSearch
 };

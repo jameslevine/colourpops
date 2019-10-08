@@ -1,5 +1,7 @@
 const initialState = {
-  list: []
+  list: [],
+  response: "",
+  searchString: ""
 };
 
 function addColour(state, action) {
@@ -8,8 +10,22 @@ function addColour(state, action) {
   };
 }
 
+function addSearchResponse(state, action) {
+  return {
+    response: action.payload
+  };
+}
+
+function searchString(state, action) {
+  return {
+    searchString: action.payload
+  };
+}
+
 const actions = {
-  ADD_COLOUR: addColour
+  ADD_COLOUR: addColour,
+  ADD_SEARCH_RESPONSE: addSearchResponse,
+  SEARCH_STRING: searchString
 };
 
 export default {
